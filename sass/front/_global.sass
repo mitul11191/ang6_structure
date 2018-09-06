@@ -1,0 +1,337 @@
+@import "./variables";
+@import "./mixin";
+@import "./extend";
+@import "./placeholder";
+
+body
+	font-family: $lato-font !important
+	font-size: initial !important
+
+a, a:focus, a:hover
+	outline: none
+	text-decoration: none
+.link
+	color: $color-0d4676
+.link-green
+	color: $color-85c12f
+.container-fluid
+	padding: 0 50px
+	width: 100%
+	@include breakpoint(laptop)
+		padding: 0 15px
+
+.main-body
+	@extend .display-block
+	background-color: $color-white
+.dropdown-toggle
+	&:after
+		display: none
+.dropdown-menu
+	.dropdown-item
+		&.active, &:active
+			background-color: $color-0d4676
+.section
+	@extend .display-block
+	padding: 30px 0
+	.head-title
+		@extend .display-block
+		@include font-size(2.4)
+		@include font-weight(bold)
+		text-transform: uppercase
+		text-align: center
+		color: $color-black
+		margin-bottom: 15px
+
+.box-shadow-effect
+	@extend .display-block
+	&:before, &:after
+		content: ""
+		z-index: -1
+		@include abs-pos(80%, auto, 15px, 10px, absolute)
+		width: 50%
+		max-width: 100%
+		-webkit-box-shadow: 0 15px 10px $color-777777
+		-moz-box-shadow: 0 15px 10px $color-777777
+		box-shadow: 0 15px 10px $color-777777
+		transform: rotate(-3deg)
+		-webkit-transform: rotate(-3deg)
+		-moz-transform: rotate(-3deg)
+		-o-transform: rotate(-3deg)
+		-ms-transform: rotate(-3deg)
+	&:after
+		-webkit-transform: rotate(3deg)
+		-moz-transform: rotate(3deg)
+		-o-transform: rotate(3deg)
+		-ms-transform: rotate(3deg)
+		transform: rotate(3deg)
+		right: 10px
+		left: auto
+
+.rslides
+	@extend .inline-block
+	list-style: none
+	overflow: hidden
+	padding: 0
+	margin: 0
+	li
+		@include abs-pos(0, auto, auto, 0, absolute)
+		@extend .display-none
+		width: 100%
+		-webkit-backface-visibility: hidden
+
+		&:first-child
+			@extend .display-block
+			float: left
+
+		img
+			@extend .inline-block
+			height: auto
+			float: left
+			border: 0
+
+.breadcrumb
+	background-color: transparent
+	padding: 0
+	margin-bottom: 0
+	li.breadcrumb-item
+		a
+			color: $color-252525
+
+// FORM CONTROL :BEGIN
+.cm-form-group
+	@extend .display-block
+	margin-top: 10px
+	margin-bottom: 20px
+	label.label
+		@extend .display-block
+		color: $color-252525
+		@include font-size(1.6)
+		@include font-weight(bold)
+		text-align: left
+		z-index: 1
+		margin-bottom: 5px
+		padding: 0 0
+		background-color: $color-white
+		span
+			margin-right: 4px
+			color: $color-red
+	p.form-note
+		@extend .display-block
+		margin-bottom: 8px
+		margin-top: 0
+		color: $color-888888
+	.form-control
+		@extend .display-block
+		height: 40px
+		padding: 0 25px
+		@include border-radius(40px)
+		border: 1px solid $color-d2d0d0
+		@include font-size(1.6)
+		color: $color-black
+		@include box-shadow(0, 0, 0, 0, rgba(0, 0, 0, 0), false)
+		@include placeholder
+	.textarea-control
+		@extend .inline-block
+		@include border-radius(10px)
+		padding: 8px 25px
+		@include font-size(1.5)
+		min-height: 80px
+		resize: none
+		border: 1px solid $color-d2d0d0
+	.select-control
+		@extend .inline-block
+		height: 40px
+		padding: 0 25px
+		@include border-radius(40px)
+		border: 1px solid $color-d2d0d0
+		@include font-size(1.6)
+		color: $color-black
+		@include box-shadow(0, 0, 0, 0, rgba(0, 0, 0, 0), false)
+		background: $color-white
+	.with-gray
+		background-color: $color-f2f2f2
+		border-color: $color-dedddd
+	.btn
+		@extend .inline-block-no-width
+		@include border-radius(40px)
+		height: 40px
+		line-height: 36px
+		padding: 0 30px
+		@include font-size(1.6)
+		@include font-weight(bold)
+		text-transform: uppercase
+		border: 2px solid
+		cursor: pointer
+		&:active, &:focus
+			@include box-shadow(0, 0, 0, 0, transparent, false)
+		&.btn-green
+			background-color: $color-85c12f
+			color: $color-white
+			border-color: $color-537026
+		&.btn-blue
+			background-color: $color-0d4676
+			color: $color-white
+			border-color: $color-083357
+		&.btn-gray
+			background-color: $color-dbd9db
+			color: $color-888888
+			border-color: $color-cccacc
+		&.btn-dark-gray
+			background-color: $color-252525
+			color: $color-white
+			border-color: $color-6c6c6c
+		&.btn-yellow
+			background-color: $color-f7b546
+			color: $color-black
+			border-color: $color-ba9544
+	&.mb
+		margin-bottom: 15px
+	&.mb-none
+		margin-bottom: 0
+
+
+// CHECKBOX CONTROL :BEGIN
+.checkbox-group
+	@extend .display-block
+	margin-top: 10px
+	margin-bottom: 20px
+	.checkbox-control
+		@include abs-pos(auto, auto, auto, -9999px, absolute)
+	label.check-label
+		@extend .display-block
+		color: $color-656565
+		@include font-size(1.5)
+		@include font-weight('normal')
+		text-align: left
+		padding: 0 0 0 30px
+		margin-bottom: 0
+		cursor: pointer
+		-webkit-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+		&:before, &:after
+			-webkit-transition: all
+			-o-transition: all
+			transition: all
+			-webkit-transition-duration: 250ms
+			transition-duration: 250ms
+			-webkit-backface-visibility: hidden
+			transition: .2s
+		&:before
+			content: ''
+			@include abs-pos(2px, auto, auto, 0, absolute)
+			height: 20px
+			width: 20px
+			border: 1px solid $color-656565
+			@include border-radius(3px)
+		&:after
+			content: ''
+			@include abs-pos(6px, auto, auto, 3px, absolute)
+			width: 18px
+			height: 7px
+			border-bottom: 2px solid $color-656565
+			border-left: 2px solid $color-656565
+			border-bottom-left-radius: 2px
+			-webkit-transform: scale(0) rotate(80deg)
+			-ms-transform: scale(0) rotate(80deg)
+			-o-transform: scale(0) rotate(80deg)
+			transform: scale(0) rotate(80deg)
+	.checkbox-control:checked + label.check-label
+		&:before
+			-webkit-transform: scale(0)
+			-ms-transform: scale(0)
+			-o-transform: scale(0)
+			transform: scale(0)
+		&:after
+			-webkit-transform: scale(1) rotate(-50deg)
+			-ms-transform: scale(1) rotate(-50deg)
+			-o-transform: scale(1) rotate(-50deg)
+			transform: scale(1) rotate(-50deg)
+			opacity: 1
+
+// RADIO GROUP :BEGIN
+.radio-group
+	@extend .display-block
+	margin-bottom: 20px
+	overflow: hidden
+	.radio-control
+		@include abs-pos(auto, auto, auto, -9999px, absolute)
+	label.radio-label
+		@extend .display-block
+		color: $color-656565
+		@include font-size(1.5)
+		@include font-weight('normal')
+		text-align: left
+		padding: 0 0 0 30px
+		margin-bottom: 0
+		line-height: 1.5
+		overflow: hidden
+		cursor: pointer
+		@include border-radius(0)
+		-webkit-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+		&:before, &:after
+			-webkit-transition: all
+			-o-transition: all
+			transition: all
+			-webkit-transition-duration: 250ms
+			transition-duration: 250ms
+			-webkit-backface-visibility: hidden
+			transition: .2s
+		&:before
+			content: ''
+			@include abs-pos(3px, auto, auto, 0, absolute)
+			height: 18px
+			width: 18px
+			background-color: $color-cccacc
+			@include border-radius(50%)
+		&:after
+			content: ''
+			@include abs-pos(3px, auto, auto, 0, absolute)
+			height: 18px
+			width: 18px
+			@include border-radius(50%)
+			background-color: $color-85c12f
+			-webkit-transform: scale(0)
+			-ms-transform: scale(0)
+			-o-transform: scale(0)
+			transform: scale(0)
+	.radio-control:checked + label.radio-label
+		&:after
+			-webkit-transform: scale(0.5)
+			-ms-transform: scale(0.5)
+			-o-transform: scale(0.5)
+			transform: scale(0.5)
+		&:before
+			background-color: $color-black
+	&:last-child
+		margin-bottom: 0
+
+// MAIN BLOCK :BEGIN
+// .main-body-block
+// 	@extend .inline-block
+// 	height: 100vh
+// 	.col
+// 		float: left
+// 		@extend .display-block
+// 		min-height: 1px
+// 		height: 100vh
+// 	.col.col-left
+// 		width: 220px
+
+.nav-tabs
+	padding: 0 15px
+	.nav-item
+		margin-bottom: 0
+		.nav-link
+			border: none
+			padding: 8px 25px
+			@include font-size(1.6)
+			color: $color-0d4676
+			@include font-weight(bold)
+			&.active
+				color: $color-252525
+				border-bottom: 2px solid $color-85c12f

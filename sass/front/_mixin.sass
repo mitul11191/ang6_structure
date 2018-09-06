@@ -1,0 +1,122 @@
+// BOX SHADOW
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false)
+	@if $inset
+		-webkit-box-shadow: inset $top $left $blur $size $color
+		-moz-box-shadow: inset $top $left $blur $size $color
+		box-shadow: inset $top $left $blur $size $color
+	@else
+		-webkit-box-shadow: $top $left $blur $size $color
+		-moz-box-shadow: $top $left $blur $size $color
+		box-shadow: $top $left $blur $size $color
+
+/* @include box-shadow(1px,1px,1px,0, #fff, true) */
+
+// BORDER RADIUS
+@mixin border-radius($radius)
+	-webkit-border-radius: $radius
+	border-radius: $radius
+	background-clip: padding-box
+// USE : @include border-radius(4px)
+
+@mixin border-top-radius($radius)
+	-webkit-border-top-right-radius: $radius
+	border-top-right-radius: $radius
+	-webkit-border-top-left-radius: $radius
+	border-top-left-radius: $radius
+	background-clip: padding-box
+// USE : @include border-top-radius(4px)
+
+@mixin border-top-left-radius($radius)
+	-webkit-border-top-left-radius: $radius
+	border-top-left-radius: $radius
+	background-clip: padding-box
+// USE : @include border-top-left-radius(4px)
+
+@mixin border-top-right-radius($radius)
+	-webkit-border-top-right-radius: $radius
+	border-top-right-radius: $radius
+	background-clip: padding-box
+// USE : @include border-top-right-radius(4px)
+
+
+@mixin border-bottom-radius($radius)
+	-webkit-border-bottom-right-radius: $radius
+	border-bottom-right-radius: $radius
+	-webkit-border-bottom-left-radius: $radius
+	border-bottom-left-radius: $radius
+	background-clip: padding-box
+// USE : @include border-bottom-radius(4px)
+
+@mixin border-bottom-left-radius($radius)
+	-webkit-border-bottom-left-radius: $radius
+	border-bottom-left-radius: $radius
+	background-clip: padding-bx
+// USE : @include border-bottom-left-radius(4px)
+
+@mixin border-bottom-right-radius($radius)
+	-webkit-border-bottom-right-radius: $radius
+	border-bottom-right-radius: $radius
+	background-clip: padding-box
+// USE : @include border-bottom-right-radius(4px)
+
+// POSITION :BEGIN
+@mixin abs-pos($top: $top, $right: $right, $bottom: $bottom, $left: $left, $position: $position)
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left
+	position: $position
+
+// FONT SIZE :BEGIN
+@mixin font-size($sizeValue: 1.6)
+	font-size: $sizeValue + rem
+	font-size: ($sizeValue * 10) + px
+
+// FONT WEIGHT :BEGIN
+@mixin font-weight($weight)
+	$weights: (thin: 100, extra-light: 200, light: 300, normal: 400, medium: 500, semi-bold: 600, bold: 700, extra-bold: 800, ultra-bold: 900)
+
+	$output: $weight
+
+	@if map-has-key($weights, $weight)
+		$output: map-get($weights, $weight)
+
+	font-weight: $output
+
+// TEXT TRUNCATE :BEGIN
+@mixin text-truncate
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+// PLACEHOLDER
+@mixin placeholder()
+	&.placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&::-webkit-input-placeholder
+		@content
+
+// BREAK POINT :BEGIN
+@mixin breakpoint($point)
+	@if $point == desktop
+		@media (max-width: 70em)
+			@content
+	@else if $point == laptop // 1024PX
+		@media (max-width: 64em)
+			@content
+	@else if $point == tablet // 800PX
+		@media (max-width: 50em)
+			@content
+	@else if $point == mobileonly // 600PX
+		@media (max-width: 37.5em)
+			@content
+	@else if $point == mobilesmall // 360px
+		@media (max-width: 22.500em)
+			@content
+	@else if $point == mobilexs // 320PX
+		@media (max-width: 20.000em)
+			@content

@@ -1,0 +1,68 @@
+<div class="space35"></div>
+	<app-front-breadcrum [currentSlug]="breadCrumbArr"></app-front-breadcrum>
+		<div class="space35"></div>
+		 
+
+
+
+
+		<section class="section authentication-blocks">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-5">
+						<div class="panel-section">
+							<div class="ps-head">New Customer</div>
+							<div class="ps-body">
+								<div class="new-customer">
+									<div class="name">Register Account</div>
+									<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+									<div class="cm-form-group mb">
+										<a href="javascript:void(0)" class="btn btn-green waves-effect">Continue</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="or">OR</div>
+					</div>
+					<div class="col-5">
+
+						<div class="panel-section">
+							<div class="ps-head">Returning Customer</div>
+							<div class="ps-body">
+							<form #loginForm="ngForm" enctype="multipart/form-data" (ngSubmit)="login()"  method="post">
+								<div class="cm-form-group">
+									<label for="email-id" class="label">E-Mail Address</label>
+									<input type="email" [(ngModel)]="loginModel.email" #email="ngModel" name="email" id="email-id" class="form-control" placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
+					              <app-disp-validation [errors]="serverMessage?.email"></app-disp-validation>
+					              <div [hidden]="email.valid || email.pristine">
+					              </div>
+					              <div *ngIf="!serverMessage?.email && email.hasError('pattern')" class="error">Please enter valid email address</div>
+					              <div *ngIf="!serverMessage?.email && !email.hasError('pattern') && email.invalid && (email.dirty || email.touched)">
+					                <div class="error">Please enter email</div>
+					              </div>
+
+								</div>
+								<div class="cm-form-group mb">
+									<label for="passwordlogin">Password</label>
+						              <input id="passwordlogin" type="password" [(ngModel)]="loginModel.password" #password="ngModel" name="password" class="form-control" placeholder="Password" required />
+						              <app-disp-validation [errors]="serverMessage?.password"></app-disp-validation>
+						              <div *ngIf="!serverMessage?.password && password.invalid && (password.dirty || password.touched)">
+						                <div class="error">Please enter password</div>
+						              </div>
+								</div>
+								<div class="forgot-password-block">
+									<a href="javascript:void(0)" class="link">Forgotten Password</a>
+								</div>
+								<div class="cm-form-group mb">
+									<button [disabled]="!loginForm.valid" type="submit" class="btn btn-blue waves-effect waves-light">Login</button>
+								</div>
+							</form>	
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>

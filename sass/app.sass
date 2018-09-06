@@ -1,0 +1,35 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600")
+
+// Variables
+@import "variables"
+
+// FRONT
+@import "front/variables"
+@import "front/mixin"
+@import "front/extend"
+@import "front/placeholder"
+
+.home-slider
+	.ngxcarouselPoint
+		@extend .display-flex
+		@extend .justify-center
+		@include abs-pos(auto, 0, 10px, 0,absolute)
+		margin: 0 !important
+		padding: 0 !important
+		list-style-type: none !important
+		z-index: 3
+		li
+			background-color: transparent !important
+			margin: 0 5px
+			@extend .display-block
+			height: 15px
+			width: 15px
+			text-indent: -99px
+			overflow: hidden
+			@include border-radius(50%)
+			border: 2px solid $color-white
+			transform: scale(1) !important
+			&.active
+				background-color: $color-white !important

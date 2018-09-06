@@ -1,0 +1,45 @@
+<div class="login-box">
+	<div class="login-logo">
+		<a routerLink="/admin/login"><b>JiniGuru</b></a>
+	</div>
+	<!-- /.login-logo -->
+	<div class="login-box-body">
+		<p class="login-box-msg">Reset Password</p>
+
+		<form #resetpassForm="ngForm" enctype="multipart/form-data" (ngSubmit)="resetPassword()"  method="post">
+			<div class="form-group has-feedback">
+
+				<input type="text" [(ngModel)]="resetPassModel.password" #password="ngModel" name="password" class="form-control" placeholder="Password" required />
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <!-- Email -Validation -->
+                <div [hidden]="password.valid || (password.pristine && !resetPassModel.submitted)" class="has-error" role="alert">
+                    <span class="help-block has-error">Password is required.</span>
+                </div>
+			</div>
+			<div class="form-group has-feedback">
+
+				<input type="text" [(ngModel)]="resetPassModel.confirmpassword" #confirmpassword="ngModel" name="confirmpassword" class="form-control" placeholder="Confirm Password" required />
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <!-- Email -Validation -->
+                <div [hidden]="confirmpassword.valid || (confirmpassword.pristine && !resetPassModel.submitted)" class="has-error" role="alert">
+                    <span class="help-block has-error">Confirm Password is required.</span>
+                </div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8">
+				</div>
+				<!-- /.col -->
+				<div class="col-xs-4">
+					<button [disabled]="!resetpassForm.valid" class="btn btn-primary btn-block btn-flat">Submit</button>
+				</div>
+				<!-- /.col -->
+			</div>
+		</form>
+
+		<a routerLink="/admin/login">Sign In</a><br>
+		<a routerLink="/" class="text-center">Register a new membership</a>
+
+	</div>
+	<!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

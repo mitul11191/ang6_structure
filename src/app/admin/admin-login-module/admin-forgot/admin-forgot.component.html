@@ -1,0 +1,36 @@
+<div class="login-box">
+	<div class="login-logo">
+		<a routerLink="/admin/login"><b>JiniGuru</b></a>
+	</div>
+	<!-- /.login-logo -->
+	<div class="login-box-body">
+		<p class="login-box-msg">Forgot Password</p>
+
+		<form #forgotForm="ngForm" enctype="multipart/form-data" (ngSubmit)="forgotPassword()"  method="post">
+			<div class="form-group has-feedback">
+
+				<input type="text" [(ngModel)]="forgotPassModel.email" #email="ngModel" name="email" class="form-control" placeholder="Email" required />
+				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <!-- Email -Validation -->
+                <div [hidden]="email.valid || (email.pristine && !forgotPassModel.submitted)" class="has-error" role="alert">
+                    <span class="help-block has-error">Email is required.</span>
+                </div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8">
+				</div>
+				<!-- /.col -->
+				<div class="col-xs-4">
+					<button [disabled]="!forgotForm.valid" class="btn btn-primary btn-block btn-flat">Submit</button>
+				</div>
+				<!-- /.col -->
+			</div>
+		</form>
+
+		<a routerLink="/admin/login">Sign In</a><br>
+		<a routerLink="/" class="text-center">Register a new membership</a>
+
+	</div>
+	<!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

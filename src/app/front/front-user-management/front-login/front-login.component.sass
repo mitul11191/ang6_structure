@@ -1,0 +1,72 @@
+@import "../../../../../sass/front/variables";
+@import "../../../../../sass/front/mixin";
+@import "../../../../../sass/front/extend";
+@import "../../../../../sass/front/placeholder";
+
+.authentication-blocks
+	.panel-section
+		@extend .display-block
+		.ps-head
+			@extend .display-flex
+			padding-bottom: 5px
+			border-bottom: 1px solid $color-dedddd
+			color: $color-252525
+			@include font-size(3.0)
+			&:after
+				content: ''
+				@include abs-pos(auto, auto, 0, 0, absolute)
+				height: 2px
+				width: 220px
+				background-color: $color-85c12f
+				z-index: 1
+			.form-group
+				margin: 0
+				.form-control
+					width: 260px
+		.ps-sub-head
+			@extend .display-block
+			padding-bottom: 5px
+			border-bottom: 1px solid $color-dedddd
+			color: $color-252525
+			@include font-size(2.4)
+		.ps-body
+			@extend .display-block
+			padding: 20px 0
+			.new-customer
+				@extend .display-block
+				.name
+					@extend .display-block
+					@include font-size(2.4)
+					margin-bottom: 5px
+				p
+					@extend .display-block
+					@include font-size(1.6)
+					color: $color-888888
+			.forgot-password-block
+				@extend .display-block
+				a.link
+					color: $color-083357
+			.sub-text
+				@extend .display-block
+				@include font-size(1.8)
+				color: $color-888888
+		.ps-sub-body
+			@extend .display-block
+			padding: 20px 40px
+	.or
+		height: 80px
+		width: 80px
+		@extend .display-block
+		text-align: center
+		line-height: 78px
+		@include font-size(2.2)
+		@include border-radius(50%)
+		border: 1px solid $color-d2d0d0
+		margin-left: auto
+		margin-right: auto
+		&:before
+			content: ''
+			@include abs-pos(-50px, auto, 0, 50%, absolute)
+			height: 50px
+			width: 1px
+			background-color: $color-d2d0d0

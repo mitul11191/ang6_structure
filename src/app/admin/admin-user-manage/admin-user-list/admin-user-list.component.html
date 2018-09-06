@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+      <nav class="navbar">
+         <input class="form-control" type="text" (input)="filterData()" name="search" [(ngModel)]="searchText">      
+      </nav>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th (click)="sort('Name')">Name
+                <span class="glyphicon sort-icon" *ngIf="defaultSort[0] =='Name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th (click)="sort('Street')">Street
+                <span class="glyphicon sort-icon" *ngIf="defaultSort[0] =='Street'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th (click)="sort('PostTown')">PostTown
+                <span class="glyphicon sort-icon" *ngIf="defaultSort[0] =='PostTown'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th (click)="sort('County')">County
+                <span class="glyphicon sort-icon" *ngIf="defaultSort[0] =='County'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+            </tr>
+            <!-- <tr>
+              <td><input class="form-control" type="text" name="search" [(ngModel)]="filter"></td>
+              <td><input class="form-control" type="text" name="search" [(ngModel)]="filter"></td>
+              <td><input class="form-control" type="text" name="search" [(ngModel)]="filter"></td>
+            </tr> -->
+
+          </thead>
+          <tbody *ngIf="devices.length > 0">
+            <tr *ngFor="let device of devices | orderBy: key : reverse | filter:filter  | paginate: { id: 'server', itemsPerPage: limitRecord, currentPage: currentPage, totalItems: totalItems }; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{device.Name}}</td>
+              <td>{{device.Street}}</td>
+              <td>{{device.PostTown}}</td>
+              <td>{{device.County}}</td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="devices.length == 0">
+            <tr>No Record Found</tr>
+          </tbody>
+          <pagination-controls *ngIf="devices.length > 0" (pageChange)="getPage($event)" id="server"></pagination-controls>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="#item of _data | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: _page, totalItems: _total }">
+                <td>{{item.id}}</td>
+                <td>{{item.text}}</td>
+            </tr>
+        </tbody>
+    </table>    
+    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+</div> -->

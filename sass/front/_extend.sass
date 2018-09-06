@@ -1,0 +1,144 @@
+.display-block
+	display: block
+	position: relative
+.display-none
+	display: none
+.inline-block
+	display: inline-block
+	position: relative
+	width: 100%
+	vertical-align: top
+.inline-block-no-width
+	display: inline-block
+	position: relative
+.table-layout
+	display: table
+	position: relative
+	width: 100%
+	vertical-align: middle
+	.table-cell
+		display: table-cell
+		position: relative
+		width: 100%
+		vertical-align: middle
+	.table-cell-bottom
+		@extend .align-bottom
+		display: table-cell
+		position: relative
+		width: 100%
+	.table-cell-top
+		@extend .align-top
+		display: table-cell
+		position: relative
+		width: 100%
+
+.flex-wrap
+	-ms-flex-wrap: wrap
+	-webkit-flex-wrap: wrap /* Safari */
+	flex-wrap: wrap
+.flex
+	-ms-flex: 1 1 0.000000001px
+	-webkit-flex: 1
+	flex: 1
+	-webkit-flex-basis: 0.000000001px
+	flex-basis: 0.000000001px
+.flex-two
+	-ms-flex: 2 2 0.000000001px
+	-webkit-flex: 2
+	flex: 2
+	-webkit-flex-basis: 0.000000001px
+	flex-basis: 0.000000001px
+.justify-start
+	-ms-flex-pack: start
+	-webkit-justify-content: flex-start /* Safari */
+	justify-content: flex-start
+.justify-end
+	-ms-flex-pack: end
+	-webkit-justify-content: flex-end /* Safari */
+	justify-content: flex-end
+.justify-center
+	-ms-flex-pack: center
+	-webkit-justify-content: center /* Safari */
+	justify-content: center
+.justify-around
+	-ms-flex-pack: distribute
+	-webkit-justify-content: space-around /* Safari */
+	justify-content: space-around
+.justify-between
+	-ms-flex-pack: justify
+	-webkit-justify-content: space-between /* Safari */
+	justify-content: space-between
+.align-start
+	-ms-flex-align: start
+	-webkit-align-items: flex-start /* Safari */
+	align-items: flex-start
+.align-end
+	-ms-flex-align: end
+	-webkit-align-items: flex-end /* Safari */
+	align-items: flex-end
+.align-center
+	-ms-flex-align: center
+	-webkit-align-items: center /* Safari */
+	align-items: center
+.align-between
+	-ms-flex-align: space-between
+	-webkit-align-items: space-between /* Safari */
+	align-items: space-between
+.display-flex
+	display: inline-flex
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
+	position: relative
+	width: 100%
+.align-top
+	vertical-align: top
+.align-middle
+	vertical-align: middle
+.align-bottom
+	vertical-align: bottom
+
+.shadow
+	// @include box-shadow(0px, 1px, 3px, rgba(0, 0, 0, 0.15))
+	@include box-shadow(0px, 1px, 3px, 0, rgba(0, 0, 0, 0.15), false)
+
+.error
+	@extend .display-block
+	color: $color-error
+	margin: 0
+
+.light-gray-color
+	background-color: $color-f2f2f2
+
+.space35
+	@extend .inline-block
+	height: 35px
+
+.space10
+	@extend .inline-block
+	height: 10px
+
+.box-shadow-effect
+	@extend .display-block
+	&:before, &:after
+		content: ""
+		z-index: -1
+		@include abs-pos(80%, auto, 15px, 10px, absolute)
+		width: 50%
+		max-width: 100%
+		-webkit-box-shadow: 0 15px 10px $color-777777
+		-moz-box-shadow: 0 15px 10px $color-777777
+		box-shadow: 0 15px 10px $color-777777
+		transform: rotate(-3deg)
+		-webkit-transform: rotate(-3deg)
+		-moz-transform: rotate(-3deg)
+		-o-transform: rotate(-3deg)
+		-ms-transform: rotate(-3deg)
+	&:after
+		-webkit-transform: rotate(3deg)
+		-moz-transform: rotate(3deg)
+		-o-transform: rotate(3deg)
+		-ms-transform: rotate(3deg)
+		transform: rotate(3deg)
+		right: 10px
+		left: auto

@@ -1,0 +1,198 @@
+		<div class="space35"></div>
+		<app-front-breadcrum [currentSlug]="breadCrumbArr"></app-front-breadcrum>
+		<div class="space35"></div>
+
+
+		<section class="section authentication-blocks">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="panel-section">
+							<div class="ps-head">{{ 'Register Account'}}</div>
+							<div class="ps-body">
+								<div class="signup-section">
+									<p class="sub-text">{{ 'if you already have account with us, please login at the'}}<a href="javascript:;" class="link">login page.</a></p>
+
+									<form #signupForm="ngForm" enctype="multipart/form-data" (ngSubmit)="signup()" method="post">
+
+										<div class="panel-section"><!-- PERSONAL DETAILS -->
+											<div class="ps-sub-head">{{ 'Your personal Details'}}</div>
+											<div class="ps-sub-body">
+												<div class="row">
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-first-name"><span>*</span>{{ 'First Name'}}</label>
+														<input class="form-control" id="sp-first-name" type="text" placeholder="{{ 'First Name'}}" name="first_name" [(ngModel)]="signupModel.first_name" #first_name="ngModel" required />
+														
+														<app-disp-validation [errors]="serverMessage?.first_name"></app-disp-validation>
+														<div *ngIf="!serverMessage?.first_name && first_name.invalid && first_name.errors.required && (first_name.dirty || first_name.touched)">
+											                <div class="error">{{ 'The first name field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-last-name"><span>*</span>{{ 'Last Name'}} </label>
+														<input class="form-control" id="sp-last-name" type="text" placeholder="{{ 'Last Name'}}" name="last_name" [(ngModel)]="signupModel.last_name" #last_name="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.last_name"></app-disp-validation>
+														<div *ngIf="!serverMessage?.last_name && last_name.invalid && last_name.errors.required && (last_name.dirty || last_name.touched)">
+											                <div class="error">{{ 'The last name field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-email"><span>*</span>{{ 'Email'}}</label>
+														<input class="form-control" id="sp-email" type="text" placeholder="{{ 'Email'}}" [(ngModel)]="signupModel.email" #email="ngModel" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
+
+														<app-disp-validation [errors]="serverMessage?.email"></app-disp-validation>
+											            <div [hidden]="email.valid || email.pristine"></div>
+											            <div *ngIf="!serverMessage?.email && email.hasError('pattern')" class="error">
+											            	Please enter valid email address
+											            </div>
+											            <div *ngIf="!serverMessage?.email && !email.hasError('pattern') && email.invalid && (email.dirty || email.touched)">
+											                <div class="error">{{ 'The email field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-telephone"><span>*</span>{{ 'Telephone'}}</label>
+														<input OnlyNumber="isNumber" class="form-control" id="sp-telephone" type="text" placeholder="{{ 'Telephone'}}" name="phone" [(ngModel)]="signupModel.phone" #phone="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.phone"></app-disp-validation>
+														<div *ngIf="!serverMessage?.phone && phone.invalid && phone.errors.required && (phone.dirty || phone.touched)">
+											                <div class="error">{{ 'The phone field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-fax"><span>*</span>{{ 'Fax'}}</label>
+														<input OnlyNumber="isNumber" class="form-control" id="sp-fax" type="text" placeholder="{{ 'Fax'}}" name="fax" [(ngModel)]="signupModel.fax" #fax="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.fax"></app-disp-validation>
+														<div *ngIf="!serverMessage?.fax && fax.invalid && fax.errors.required && (fax.dirty || fax.touched)">
+											                <div class="error">{{ 'The fax field is required.'}}</div>
+											            </div>
+													</div>
+												</div>
+											</div>
+										</div><!-- PERSONAL DETAILS -->
+
+										<div class="panel-section"><!-- ADDRESS -->
+											<div class="ps-sub-head">{{ 'Your Address'}}</div>
+											<div class="ps-sub-body">
+												<div class="row">
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-company"><span>*</span>{{ 'Company'}}</label>
+														<input class="form-control" id="sp-company" type="text" placeholder="{{ 'Company'}}" name="company" [(ngModel)]="signupModel.company" #company="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.company"></app-disp-validation>
+														<div *ngIf="!serverMessage?.company && company.invalid && company.errors.required && (company.dirty || company.touched)">
+											                <div class="error">{{ 'The company field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-address"><span>*</span>{{ 'Address'}}</label>
+														<input class="form-control" id="sp-address" type="text" placeholder="{{ 'Address'}}" name="address1" [(ngModel)]="signupModel.address1" #address1="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.address1"></app-disp-validation>
+														<div *ngIf="!serverMessage?.address1 && address1.invalid && address1.errors.required && (address1.dirty || address1.touched)">
+											                <div class="error">{{ 'The address1 field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-city"><span>*</span>{{ 'City'}}</label>
+														<input class="form-control" id="sp-city" type="text" placeholder="{{ 'City'}}" name="city" [(ngModel)]="signupModel.city" #city="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.city"></app-disp-validation>
+														<div *ngIf="!serverMessage?.city && city.invalid && city.errors.required && (city.dirty || city.touched)">
+											                <div class="error">{{ 'The city field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-post-code"><span>*</span>{{ 'Post Code'}}</label>
+														<input OnlyNumber="isNumber" class="form-control" id="sp-post-code" type="text" placeholder="{{ 'Post Code'}}" name="zip" [(ngModel)]="signupModel.zip" #zip="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.zip"></app-disp-validation>
+														<div *ngIf="!serverMessage?.zip && zip.invalid && zip.errors.required && (zip.dirty || zip.touched)">
+											                <div class="error">{{ 'The zip field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-country"><span>*</span>{{ 'State'}}</label>
+														<input class="form-control" id="sp-country" type="text" placeholder="{{ 'State'}}" name="state" [(ngModel)]="signupModel.state" #state="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.state"></app-disp-validation>
+														<div *ngIf="!serverMessage?.state && state.invalid && state.errors.required && (state.dirty || state.touched)">
+											                <div class="error">{{ 'The state field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-country"><span>*</span>{{ 'Country'}}</label>
+														<input class="form-control" id="sp-country" type="text" placeholder="{{ 'Country'}}" name="country" [(ngModel)]="signupModel.country" #country="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.country"></app-disp-validation>
+														<div *ngIf="!serverMessage?.country && country.invalid && country.errors.required && (country.dirty || country.touched)">
+											                <div class="error">{{ 'The country field is required.'}}</div>
+											            </div>
+													</div>
+												</div>
+											</div>
+										</div><!-- ADDRESS -->
+
+										<div class="panel-section"><!-- PASSWORD -->
+											<div class="ps-sub-head">{{ 'Your Password'}}</div>
+											<div class="ps-sub-body">
+												<div class="row">
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-username"><span>*</span>{{ 'Username'}}</label>
+														<input class="form-control" id="sp-username" type="text" placeholder="{{ 'Username'}}" name="username" [(ngModel)]="signupModel.username" #username="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.username"></app-disp-validation>
+														<div *ngIf="!serverMessage?.username && username.invalid && username.errors.required && (username.dirty || username.touched)">
+											                <div class="error">{{ 'The username field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-password"><span>*</span>{{ 'Password'}}</label>
+														<input class="form-control" id="sp-password" type="password" placeholder="{{ 'Password'}}" name="password" [(ngModel)]="signupModel.password" #password="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.password"></app-disp-validation>
+														<div *ngIf="!serverMessage?.password && password.invalid && password.errors.required && (password.dirty || password.touched)">
+											                <div class="error">{{ 'The password field is required.'}}</div>
+											            </div>
+													</div>
+
+													<div class="cm-form-group col-6">
+														<label class="label" for="sp-pwd-confirm"><span>*</span>{{ 'Password Confirm'}}</label>
+														<input class="form-control" id="sp-pwd-confirm" type="password" placeholder="{{ 'Password Confirm'}}" name="password_confirmation" [(ngModel)]="signupModel.password_confirmation" #password_confirmation="ngModel" required />
+
+														<app-disp-validation [errors]="serverMessage?.password_confirmation"></app-disp-validation>
+														<div *ngIf="!serverMessage?.password_confirmation && password_confirmation.invalid && password_confirmation.errors.required && (password_confirmation.dirty || password_confirmation.touched)">
+											                <div class="error">{{ 'The password confirmation field is required.'}}</div>
+											            </div>
+													</div>
+													<div class="checkbox-group col-12">
+														<input class="checkbox-control" type="checkbox" id="privacy-checkbox" name="trade_aprroved" [(ngModel)]="signupModel.trade_aprroved" #trade_aprroved="ngModel" required>
+														<label class="check-label" for="privacy-checkbox">{{ 'I have read and agree to the'}}<a href="javascript:;" class="link">Privacy Policy</a></label>
+
+														<app-disp-validation [errors]="serverMessage?.trade_aprroved"></app-disp-validation>
+														<div *ngIf="!serverMessage?.trade_aprroved && trade_aprroved.invalid && trade_aprroved.errors.required && (trade_aprroved.dirty || trade_aprroved.touched)">
+											                <div class="error">{{ ''}}Please checked privacy policy</div>
+											            </div>
+													</div>
+													<div class="cm-form-group col-6">
+														<button type="submit" [disabled]="!signupForm.valid" class="btn btn-blue waves-effect waves-light">{{ 'Register Now'}}</button>
+													</div>
+												</div>
+											</div>
+										</div><!-- PASSWORD -->
+
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>

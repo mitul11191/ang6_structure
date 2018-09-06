@@ -1,0 +1,10 @@
+<div class="container-fluid">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+		<li class="breadcrumb-item" [class.active]="slugLength == i"  *ngFor="let slug of currentSlug; let i = index">
+			<a [routerLink]="[slug.url]" *ngIf="(slugLength != i && slug.url != '')">{{slug.name}}</a>
+			<span *ngIf="slugLength != i && slug.url == ''">{{slug.name}}</span>
+			<span *ngIf="slugLength == i">{{slug.name}}</span>
+		</li>
+	</ol>
+</div>

@@ -1,0 +1,54 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="image">
+				<img *ngIf="loginUserInfo.profile_picture" src="userImages/{{loginUserInfo.profile_picture}}" class="img-circle" alt="User Image">
+				<img *ngIf="!loginUserInfo.profile_picture" src="assets/admin-theme/dist/img/avatar5.png" class="img-circle" alt="User Image">
+			</div>
+			<div class="info">
+				<p>{{ loginUserInfo.first_name }} {{ loginUserInfo.last_name }}</p>
+				<!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
+			</div>
+		</div>
+		
+		<!-- sidebar menu: : style can be found in sidebar.less  appMenuToggle-->
+
+		<ul class="sidebar-menu" data-widget="tree">
+		    <li *ngFor="let menu of menuList let i=index" class="" [ngClass]="{'treeview': menu.submenu, 'header': menu.header!=undefined}" routerLinkActive="menu-open active" toggleFrom="admin-side-bar" >
+
+
+		    	<span *ngIf="menu.header!=undefined && menu.header==true">MAIN NAVIGATION</span>
+
+	            <a [routerLink]="[menu.link]" *ngIf="menu.applylink && menu.header==undefined" title="{{menu.name}}">
+	            	<i class="fa {{menu.icon}}"></i> <span>{{menu.name}}</span>
+
+	            	<span *ngIf="menu.submenu" class="pull-right-container" >
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+	            </a>
+
+	            <a *ngIf="!menu.applylink && menu.header==undefined" title="{{menu.name}}" >
+	            	<i class="fa {{menu.icon}}"></i> <span>{{menu.name}}</span>
+
+	            	<span *ngIf="menu.submenu" class="pull-right-container" >
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+	            </a>
+
+	            <ul class="treeview-menu" *ngIf="menu.submenu">
+
+	            	<li routerLinkActive="active" class="" *ngFor="let subMenu of menu.submenu">
+	            		<a [routerLink]="[subMenu.link]" title="{{subMenu.name}}"><i class="fa fa-circle-o"></i> {{subMenu.name}}</a>
+            		</li>
+
+		        </ul>
+
+		    </li>
+	    </ul>
+
+	</section>
+	<!-- /.sidebar -->
+</aside>

@@ -1,0 +1,118 @@
+.bg-img {
+	width: 100%;
+	height: 100%;
+	float: left;
+	bottom: 0%;
+	position: absolute;
+	z-index: -1;
+	background: url(../../../assets/images/bg.png) no-repeat top center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    background-color: #000;
+}
+.coming-soon-wrapper{
+	display: table;
+    height:100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    position: relative;
+    text-align: center;
+}
+
+.coming-soon{
+	display: table-cell;
+	vertical-align: middle;
+}
+.seperator {
+	height: 5px;
+	width:317px;
+	margin: 0 auto;
+	background: url(../../../assets/images/line.png) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.inner-wrapper{
+	width: 100%;
+	height: 710px;
+	padding: 40px 0;
+	background: url(../../../assets/images/inner_bg.png) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+}
+
+.coming-soon-title{
+	font-weight: 600;
+	font-size: 70px;
+	margin: 40px 0 20px;
+}
+
+.coming-soon-desc{
+	margin: 20px 0;	
+}
+
+.coming-soon-desc .about-website {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.timer .days-wrapper, .timer .hours-wrapper, .timer .minutes-wrapper, .timer .seconds-wrapper {
+	display: inline-block;
+	width: 172px;
+	height: 172px;
+	margin: 0 20px;
+	padding-top: 50px;
+	background: url(../../../assets/images/BG2.png) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.timer .days, .hours, .minutes, .seconds{
+	font-weight: 600;
+	font-size: 50px;
+	display: block;
+	line-height: 40px;
+}
+
+.timer .common-color{
+	font-size: 22px;
+	color: #47c0b5;
+	font-weight: 500;
+}
+
+.social .social_parent{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: #49a49b;
+	line-height: 50px;
+	transform: rotate(45deg);
+	margin: 0 20px;
+	border: 1px solid #c3cdcf;
+
+}
+
+.social{
+	padding: 50px 0 20px;
+}
+
+.social .social_parent .social_links{
+	color: #000;
+	font-size: 24px;
+	display: block;
+}
+
+.social .social_parent .social_links i{
+	transform: rotate(-45deg);
+}

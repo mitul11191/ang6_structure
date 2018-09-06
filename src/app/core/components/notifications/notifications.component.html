@@ -1,0 +1,7 @@
+<div class="notifications">
+    <div (click)="hide(note)" class="{{ note.type }}"
+            *ngFor="let note of _notes">
+        <span class="closebtn">&times;</span>
+        {{ note.message }}
+    </div>
+</div>

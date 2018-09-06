@@ -1,0 +1,104 @@
+<header id="header" class="header">
+	<div class="container-fluid">
+		<!-- SUPER MENU :BEGIN -->
+		<!-- div class="super-header">
+			<div class="electronics-group">
+				<a href="javascript:;" class="link">
+					<img class="icon" src="http://192.168.10.206/pcb-train-html/images/super-group-icon.jpg">
+					<span>Part of the Newbury electronics group</span>
+					<span class="visit-btn waves-effect waves-light">{{ 'Visit Site'}}</span>
+				</a>
+			</div>
+			<ul class="super-menu-list">
+				<li class="item">
+					<a href="javascript:;" class="link waves-effect dropdown-toggle" id="myAccountMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon fa fa-user"></i> My Account <i class="down fa fa-caret-down"></i></a>
+					<div class="dropdown-menu" aria-labelledby="myAccountMenu">
+						<a class="dropdown-item" [routerLink]="[loginLink]">Login</a>
+						<a class="dropdown-item" [routerLink]="[registerLink]">Register</a>
+						<a class="dropdown-item" href="your-order.php">Your Orders</a>
+					</div>
+				</li>
+				<li class="item">
+					<a href="javascript:;" class="link waves-effect"><i class="icon fa fa-heart"></i> Wish list <span class="counter">(0)</span></a>
+				</li>
+				<li class="item">
+					<a href="javascript:;" class="link waves-effect"><i class="icon fa fa-share"></i> Checkout</a>
+				</li>
+				<li class="item">
+					<a href="javascript:;" class="link waves-effect"><i class="icon fa fa-gbp"></i> Pound <i class="down fa fa-caret-down"></i></a>
+				</li>
+				<li class="item">
+					<select [(ngModel)]="defaultLang" (change)="selectLang($event.target.value)">
+					  <option *ngFor="let lang of supportedLangs" value= {{lang.language_code}}>
+					    {{lang.name}}
+					  </option>
+					</select>
+				</li>
+			</ul>
+		</div> -->
+		<!-- SUPER MENU :END -->
+		<!-- LOGO WITH CART :BEGIN -->
+		<!-- <div class="middle-header">
+			<a href="javascript:;" class="menu-collapse menu-bar waves-effect">
+				<i class="fa fa-bars"></i>
+			</a>
+			
+			<div class="logo-section">
+				<a href="javascript:;" class="logo">
+					<img src="http://192.168.10.206/pcb-train-html/images/logo.png">
+				</a>
+				<div class="iso-ru">
+					<img src="http://192.168.10.206/pcb-train-html/images/iso-ru.png">
+				</div>
+			</div>
+			<div class="video-call-section">
+				<a href="javascript:;" class="video-btn waves-effect waves-light">PCB Video <i class="fa fa-caret-right"></i></a>
+				<a href="tel: +44 (0) 1635 40347" class="call-btn"><i class="icon-call"></i> Call +44 (0) 1635 40347</a>
+			</div>
+			<div class="cart-price-section">
+				<div class="cart-section">
+					<a href="javascript:;" class="cart-icon">
+						<i class="shopping-basket"></i>
+						<span class="align-middle">Cart <span class="counter">(0)</span></span>
+					</a>
+				</div>
+				<div class="price-section">
+					<span class="price">$0.00</span>
+				</div>
+			</div>
+		</div> -->
+		<!-- LOGO WITH CART :END -->
+
+		<!-- NEWS PART :BEGIN -->
+		<!-- <div class="news-marquee">
+			<div class="news-tag">News</div>
+			<div class="marquee-text">
+				<marquee>.....take a look at NEW PCB Train services....8 layers (1.6 mm thick).....PCB Train Express 0.8mm service.......2 layer PTH 2.4 mm thick service.......</marquee>
+			</div>
+		</div> -->
+		<!-- NEWS PART :END -->
+
+		<!-- MENU :BEGIN -->
+
+
+		 <!-- <ul id="main-nav-menu" class="nav-menu">
+
+			<li class="nav-item" *ngFor="let ml of menuList; let i = index">
+				<a [routerLink]="ml.slug" [class.active]="i == 0" class="nav-link waves-effect"> {{ ml.title }}</a>
+				<ul class="sub-nav-menu" *ngIf="ml.is_static != '0'">
+					<li *ngFor="let sml of ml.menuData; let subi = index" [class.active]="subi == 0">
+						<a [routerLink]="sml.slug" class="sub-nav-link waves-effect">
+							{{ sml.title }}
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul> -->
+
+
+		 
+		<!-- MENU :END -->
+
+		common header page
+	</div>
+</header>
